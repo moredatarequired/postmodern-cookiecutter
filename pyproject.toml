@@ -54,7 +54,7 @@ format = "black {args}"
 format-check = "black --check {args}"
 lint = "ruff {args}"
 lint-fix = "ruff --fix {args}"
-type-check = "pyre --source-directory '.' --noninteractive check {args}"
+type-check = "pyre --noninteractive check {args}"
 
 [[tool.hatch.envs.test.matrix]]
 python = ["37", "38", "39", "310", "311"]
