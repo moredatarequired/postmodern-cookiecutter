@@ -41,13 +41,20 @@ path = "src/template/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
-  "pre-commit",
+  "black",
+  "pyre-check",
   "pytest",
   "pytest-cov",
+  "ruff",
 ]
 [tool.hatch.envs.default.scripts]
 cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/template --cov=tests {args}"
 no-cov = "cov --no-cov {args}"
+format = "black {args}"
+format-check = "black --check {args}"
+lint = "ruff {args}"
+lint-fix = "ruff --fix {args}"
+type-check = "pyre {args}"
 
 [[tool.hatch.envs.test.matrix]]
 python = ["37", "38", "39", "310", "311"]
