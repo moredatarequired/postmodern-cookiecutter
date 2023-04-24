@@ -1,6 +1,6 @@
 import sys
 
 if __name__ == "__main__":
-    from .cli import template
+    from .cli import cli
 
-    sys.exit(template())
+    sys.exit(cli())
