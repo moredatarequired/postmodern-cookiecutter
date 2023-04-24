@@ -41,6 +41,7 @@ path = "src/template/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
+  "pre-commit",
   "pytest",
   "pytest-cov",
 ]
@@ -64,3 +65,39 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[tool.ruff]
+src = ["src"]
+select = [
+  "A",
+  "B",
+  "C4",
+  "C90",
+  "D",
+  "E",
+  "F",
+  "I",
+  "N",
+  "PLE",
+  "PT",
+  "RSE",
+  "RUF",
+  "S",
+  "SIM",
+  "UP",
+  "W",
+]
+ignore = [
+  "D1",   # Allow missing docstrings.
+  "D417", # Don't require descriptions for all arguments.
+  "S101",
+]
+target-version = "py37"
+fix = true
+format = "grouped"
+
+[tool.ruff.isort]
+split-on-trailing-comma = false
+
+[tool.ruff.pydocstyle]
+convention = "google"
