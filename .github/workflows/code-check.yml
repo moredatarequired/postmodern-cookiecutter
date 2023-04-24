@@ -1,4 +1,4 @@
-name: Code-check
+name: Static code checks
 
 on:
   push:
@@ -43,9 +43,11 @@ jobs:
       - name: Save code checker caches
         id: save-code-checker-cache
         uses: actions/cache/save@v3
+        if: always()
         with:
           path: |
             .pyre
             .ruff_cache
             ~/.cache
           key: ${{ steps.restore-code-checker-cache.outputs.cache-primary-key }}
+          restore-keys: ${{ runner.os }}-code-checker
