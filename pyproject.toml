@@ -48,7 +48,7 @@ dependencies = [
   "ruff",
 ]
 [tool.hatch.envs.default.scripts]
-cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src --cov=tests {args}"
+cov = "pytest --cov-report=xml --cov-config=pyproject.toml --cov=src/template --cov=tests {args}"
 no-cov = "cov --no-cov {args}"
 format = "black {args}"
 format-check = "black --check {args}"
