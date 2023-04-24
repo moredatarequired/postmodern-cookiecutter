@@ -9,5 +9,5 @@ from ..__about__ import __version__
 )
 @click.version_option(version=__version__, prog_name="template")
 @click.pass_context
-def template(ctx: click.Context):
+def cli(ctx: click.Context):
     click.echo("Hello world!")

@@ -34,7 +34,7 @@ Issues = "https://github.com/unknown/template/issues"
 Source = "https://github.com/unknown/template"
 
 [project.scripts]
-template = "template.cli:template"
+template = "template.cli:cli"
 
 [tool.hatch.version]
 path = "src/template/__about__.py"
@@ -48,7 +48,7 @@ dependencies = [
   "ruff",
 ]
 [tool.hatch.envs.default.scripts]
-cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/template --cov=tests {args}"
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src --cov=tests {args}"
 no-cov = "cov --no-cov {args}"
 format = "black {args}"
 format-check = "black --check {args}"

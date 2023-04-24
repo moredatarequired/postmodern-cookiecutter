@@ -32,10 +32,10 @@ jobs:
         run: pip install --upgrade hatch
 
       - name: Run Black
-        run: hatch run format-check
+        run: hatch run format-check .
 
       - name: Run Ruff
-        run: hatch run lint
+        run: hatch run lint .
 
       - name: Run Pyre
         run: hatch run type-check
