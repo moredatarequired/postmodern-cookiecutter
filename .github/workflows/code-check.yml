@@ -12,9 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Restore code checker caches
-        id: restore-code-checker-cache
-        uses: actions/cache/restore@v3
+      - name: Code checker caches
+        id: code-checker-cache
+        uses: actions/cache@v3
         with:
           path: |
             .pyre
@@ -39,15 +39,3 @@ jobs:
 
       - name: Run Pyre
         run: hatch run type-check
-
-      - name: Save code checker caches
-        id: save-code-checker-cache
-        uses: actions/cache/save@v3
-        if: always()
-        with:
-          path: |
-            .pyre
-            .ruff_cache
-            ~/.cache
-          key: ${{ steps.restore-code-checker-cache.outputs.cache-primary-key }}
-          restore-keys: ${{ runner.os }}-code-checker
