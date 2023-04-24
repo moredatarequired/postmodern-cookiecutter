@@ -1,10 +1,17 @@
 from click.testing import CliRunner
 
-from template import cli
+from template.cli import cli
 
 
 def test_hello_world():
     runner = CliRunner()
-    result = runner.invoke(cli, [])
+    result = runner.invoke(cli)
     assert result.exit_code == 0
     assert result.output == "Hello world!\n"
+
+
+def test_hello_name():
+    runner = CliRunner()
+    result = runner.invoke(cli, ["Igor"])
+    assert result.exit_code == 0
+    assert result.output == "Hello Igor!\n"

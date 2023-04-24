@@ -1,3 +1,5 @@
+from typing import Optional
+
 import click
 
 from ..__about__ import __version__
@@ -8,6 +10,7 @@ from ..__about__ import __version__
     invoke_without_command=True,
 )
 @click.version_option(version=__version__, prog_name="template")
+@click.argument("name", required=False)
 @click.pass_context
-def cli(ctx: click.Context):
-    click.echo("Hello world!")
+def cli(ctx: click.Context, name: Optional[str] = None) -> None:
+    click.echo(f"Hello {name or 'world'}!")
