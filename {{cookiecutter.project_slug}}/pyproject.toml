@@ -3,14 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "template"
-description = ''
+name = {{ cookiecutter.project_name }}
+description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 requires-python = ">=3.7"
 license = "MIT"
 keywords = []
 authors = [
-  { name = "Hugh Wimberly", email = "hugh.wimberly@gmail.com" },
+  { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}" },
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -29,15 +29,15 @@ dependencies = [
 dynamic = ["version"]
 
 [project.urls]
-Documentation = "https://github.com/unknown/template#readme"
-Issues = "https://github.com/unknown/template/issues"
-Source = "https://github.com/unknown/template"
+Documentation = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}#readme"
+Issues = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
+Source = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 
 [project.scripts]
-template = "template.cli:cli"
+{{ cookiecutter.project_slug }} = "{{ cookiecutter.project_slug }}.cli:cli"
 
 [tool.hatch.version]
-path = "src/template/__about__.py"
+path = "src/{{ cookiecutter.project_slug }}/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -48,7 +48,7 @@ dependencies = [
   "ruff",
 ]
 [tool.hatch.envs.default.scripts]
-cov = "pytest --cov-report=xml --cov-config=pyproject.toml --cov=src/template --cov=tests {args}"
+cov = "pytest --cov-report=xml --cov-config=pyproject.toml --cov=src/{{ cookiecutter.project_slug }} --cov=tests {args}"
 no-cov = "cov --no-cov {args}"
 format = "black {args}"
 format-check = "black --check {args}"
@@ -63,7 +63,7 @@ python = ["37", "38", "39", "310", "311"]
 branch = true
 parallel = true
 omit = [
-  "src/template/__about__.py",
+  "src/{{ cookiecutter.project_slug }}/__about__.py",
 ]
 
 [tool.coverage.report]

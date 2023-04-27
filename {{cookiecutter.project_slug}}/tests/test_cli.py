@@ -1,6 +1,6 @@
 from click.testing import CliRunner
 
-from template.cli import cli
+from {{ cookiecutter.project_slug }}.cli import cli
 
 
 def test_hello_world():

@@ -1,0 +1,9 @@
+{
+  "author_name": "Hugh Wimberly",
+  "author_email": "hugh.wimberly@gmail.com",
+  "github_username": "moredatarequired",
+  "project_name": "Template Project",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+  "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+  "project_short_description": "A template for a Python CLI + library"
+}
