@@ -1,3 +1,4 @@
+{% raw %}
 name: Static code checks
 
 on:
@@ -39,3 +40,4 @@ jobs:
 
       - name: Run Pyre
         run: hatch run type-check
+{% endraw %}

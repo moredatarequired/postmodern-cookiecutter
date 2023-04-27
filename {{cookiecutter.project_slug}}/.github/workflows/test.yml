@@ -1,3 +1,4 @@
+{% raw %}
 name: Tests
 
 on:
@@ -82,3 +83,4 @@ jobs:
 
       - name: Upload coverage reports
         uses: codecov/codecov-action@v3
+{% endraw %}
